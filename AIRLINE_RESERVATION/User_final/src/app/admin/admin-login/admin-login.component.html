@@ -1,0 +1,21 @@
+<app-home-dashboard></app-home-dashboard>
+
+    <body>
+        <div class="login-form">
+                <h1 style="color: darkblue;">Admin Login</h1>
+            
+                <div class="txtb">
+                  <input type="email" placeholder="email" [(ngModel)]="email" required>
+                 
+                </div>
+            
+                <div class="txtb">
+                  <input type="password" placeholder="Password" [(ngModel)]="password">
+                  
+                </div>
+                <div  *ngIf = "bol" class="bottom-text" style="color: red;">Please enter valid credentials</div>
+                <input type="submit" class="logbtn" value="Login" (click)="loginAdmin()">
+                
+            </div>
+    </body>
+    

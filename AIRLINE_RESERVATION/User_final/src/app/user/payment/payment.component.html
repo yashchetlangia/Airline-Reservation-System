@@ -1,0 +1,66 @@
+<div><app-user-nav></app-user-nav></div>
+
+<body>
+    
+    <div class="booking-form-box ">
+   
+    <div class="container booking-form">
+        <h1>Enter Payment Details Here</h1>
+        <form [formGroup]="paymentForm"  (ngSubmit)="onSubmit()">
+            <br>
+            <div class="form-group input-grp">
+                <label for="bookingId">Booking ID</label>
+                <br>
+                <label class="form-control input-grp" for="bookingId">{{bookingId}}</label>
+            </div>
+            <br>
+    
+    
+            <div class="form-group input-grp">
+                <label for="cardHolderName">Card Holder Name</label>
+                <input formControlName="cardHolderName" type="text" class="form-control" id="cardHolderName" placeholder="Card Holder Name" />
+                <div *ngIf="submitted && paymentForm.controls.cardHolderName.errors" class="error">														
+                    <div class="text-danger" *ngIf="paymentForm.controls.cardHolderName.errors.required">Name is required</div>														
+                  </div>
+            </div>
+            <br>
+    
+            <div class="form-group input-grp">
+                <label for="cardNumber">Card Number</label>
+                <input formControlName="cardNumber" type="text" class="form-control" id="cardNumber" placeholder="Card Number" />
+                <div *ngIf="submitted && paymentForm.controls. cardNumber.errors" class="error">														
+                    <div class="text-danger" *ngIf="paymentForm.controls.cardNumber.errors.required">Card number is required</div>														
+                  </div>
+            </div>
+            <br>
+            <div class="form-group input-grp">
+                <label for="cvv">CVV</label>
+                <input  type="number" class="form-control" placeholder="CVV" formControlName="cvv" />
+                <div *ngIf="submitted && paymentForm.controls.cvv.errors" class="error">														
+                    <div class="text-danger" *ngIf="paymentForm.controls.cvv.errors.required">CVV is required</div>														
+                  </div>
+            </div>
+    
+            <div class="form-group input-grp">
+                <label >Expiry date</label>
+                <input type="text" class="form-control" placeholder="MM/yy" formControlName="expiryDate" />
+                <div *ngIf="submitted && paymentForm.controls.expiryDate.errors" class="error">														
+                    <div class="text-danger" *ngIf="paymentForm.controls.expiryDate.errors.required">Date is required</div>														
+                  </div>
+            </div>
+    
+            <div><label class="form-group input-grp" for="totalCost"><h3>Amount</h3> </label>
+                <label class="form-group" for="totalCost"><h2>{{totalCost}}</h2></label>
+            </div>
+          
+      
+            <button class="btn btn-primary flight" type="submit" id="makePayment" >PAY</button>
+            &nbsp;
+            <button  class="btn btn-primary flight"   (click)="viewBooking()">VIEW BOOKING</button>
+            
+            
+    
+        </form>
+        </div>
+       </div>
+    </body>    

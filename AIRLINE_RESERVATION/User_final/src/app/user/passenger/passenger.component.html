@@ -1,0 +1,58 @@
+<app-user-nav></app-user-nav>
+
+<body>
+    <div class="booking-form-box ">
+    <!-- <div  *ngFor="let i of arr(num).fill(1)"> -->
+        <div>
+    <div class="container booking-form" [hidden] = addButton>
+        <form [formGroup]="passengerForm"  (ngSubmit)="onSubmit()">
+            <br>
+            <div class="form-group input-grp">
+                <label for="bookingId">Booking ID  </label>
+                <br>
+                <label>{{bookingId}}</label>
+            </div> 
+            <br>
+    
+    
+            <div class="form-group input-grp">
+                <label for="Name">Name</label>
+                <input formControlName="name" type="text" class="form-control" id="Name" placeholder="Name" />
+                <div *ngIf="submitted && passengerForm.controls.name.errors" class="error">														
+                    <div class="text-danger" *ngIf="passengerForm.controls.name.errors.required">Name is required</div>														
+                  </div>
+                
+            
+            </div>
+            <br>
+    
+            <div class="form-group input-grp">
+                <label for="age">Age</label>
+                <input formControlName="age" type="number" class="form-control" id="age" placeholder="age" />
+                <div *ngIf="submitted && passengerForm.controls.age.errors" class="error">														
+                    <div class="text-danger" *ngIf="passengerForm.controls.age.errors.required">Age is required</div>														
+                  </div>
+            </div>
+            <br>
+            <div class="form-group input-grp">
+                <label for="gender">Gender</label>
+                <select name="gender" formControlName="gender">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+                <div *ngIf="submitted && passengerForm.controls.gender.errors" class="error">														
+                    <div class="text-danger" *ngIf="passengerForm.controls.gender.errors.required">Gender is required</div>														
+                  </div>
+            </div>
+            <br>
+            
+    
+            
+        </form>
+    </div> 
+        <button class="btn btn-primary flight"  (click) = toPayment()>Proceed to Payment </button>
+        </div>
+    </div>
+    </body>
+    
+    <router-outlet></router-outlet>
